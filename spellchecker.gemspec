@@ -5,7 +5,7 @@ $:.unshift lib unless $:.include?(lib)
 require "spellchecker/version"
 
 Gem::Specification.new do |s|
-  s.name        = "Spellchecker"
+  s.name        = "spellchecker"
   s.version     = Spellchecker::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["RedBeard Tech"]

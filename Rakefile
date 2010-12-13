@@ -12,7 +12,7 @@ task :build do
 end
 
 task :install => :build do
-  system "sudo gem install spellchecker-#{MongoidSphinx::VERSION}.gem"
+  system "sudo gem install spellchecker-#{Spellchecker::VERSION}.gem"
 end
 
 task :release => :build do
