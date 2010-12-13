@@ -4,10 +4,19 @@ class Spellchecker
   require 'rexml/document'
   
   ASPELL_WORD_DATA_REGEX = Regexp.new(/\&\s\w+\s\d+\s\d+(.*)$/)
-  ASPELL_PATH = "/usr/local/bin/aspell"
+  
+  @@aspell_path = "aspell"
+  
+  def self.aspell_path=(path)
+    @@aspell_path = path
+  end
+  
+  def self.aspell_path
+    @@aspell_path
+  end
   
   def self.check(text, lang='en')
-    spell_check_response = `echo "#{text}" | #{ASPELL_PATH} -a -l #{lang}`
+    spell_check_response = `echo "#{text}" | #{@@aspell_path} -a -l #{lang}`
     if spell_check_response == ''
       raise 'Aspell command not found'
     elsif text == ''
@@ -31,4 +40,5 @@ class Spellchecker
       return response
     end
   end
+  
 end

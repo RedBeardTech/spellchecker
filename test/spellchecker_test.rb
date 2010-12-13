@@ -29,6 +29,14 @@ class SpellcheckerTest < Test::Unit::TestCase
     assert_equal 0, result.length
   end
   
+  def test_setting_of_aspell_path
+    assert_equal 'aspell', Spellchecker.aspell_path
+    
+    path = '/usr/local/aspell'
+    Spellchecker.aspell_path = path
+    assert_equal path, Spellchecker.aspell_path
+  end
+  
   def test_correct_spelling_results
     test_string = 'sentence'
     result = Spellchecker.check(test_string)
