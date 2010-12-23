@@ -28,7 +28,7 @@ class Spellchecker
       response.each_with_index do |word_hash, index|
         if word_hash[:original] =~ /[a-zA-z]/
           if results[result_index] =~ ASPELL_WORD_DATA_REGEX
-            response[index].merge!(:correct => false, :suggestions => results[result_index].split(',')[1..-1].collect(&:strip!))
+            response[index].merge!(:correct => false, :suggestions => results[result_index].split(':')[1].strip.split(',').map(&:strip))
           else
             response[index].merge!(:correct => true)
           end
