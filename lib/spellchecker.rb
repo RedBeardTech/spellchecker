@@ -16,7 +16,11 @@ class Spellchecker
   end
   
   def self.check(text, lang='en')
-    spell_check_response = `echo "#{text}" | #{@@aspell_path} -a -l #{lang}`
+    tmp = Tempfile.new('spellchecker-tmp')
+    tmp << text
+    tmp.flush
+    tmp.close
+    spell_check_response = `cat "#{tmp.path}" | #{@@aspell_path} -a -l #{lang}`
     if spell_check_response == ''
       raise 'Aspell command not found'
     elsif text == ''

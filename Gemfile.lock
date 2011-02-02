@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spellchecker (0.1.4)
+    spellchecker (0.1.5)
 
 GEM
   remote: http://rubygems.org/
