@@ -1,0 +1,11 @@
+Gemfile.lock
+.bundle
+pkg/*
+log
+.rvmrc
+*.swp
+*~
+TAGS
+tmp
+doc/*
+html/*
