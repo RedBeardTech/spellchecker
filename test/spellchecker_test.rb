@@ -1,5 +1,6 @@
 require 'test/unit'
-require "#{File.dirname(__FILE__)}/../lib/spellchecker"
+$:.unshift File.expand_path('../../lib', __FILE__)
+require 'spellchecker'
 
 class SpellcheckerTest < Test::Unit::TestCase
   
